@@ -13,11 +13,11 @@
 		 SELECT ROW_NUMBER() OVER (ORDER BY atliqo_revenue_crores ) AS r_num ,atliqo_revenue_crores 
 		 FROM fact_atliqo_metrics
 					 )
-		 SELECT (
+		   SELECT (
 		  (SELECT atliqo_revenue_crores FROM cte WHERE r_num=60) 
 		  +
 		  (SELECT atliqo_revenue_crores from cte WHERE r_num=61)
-				)/2 AS Median_revenue_cr;
+			  )/2 AS Median_revenue_cr;
 			
 -- AVERAGE REVENUE PER USER: AVERAGE OF ARPU
 			SELECT ROUND(AVG(arpu)/100,2) AS ARPU_cr 
@@ -39,30 +39,30 @@
 			SELECT before_after_5g,ROUND(SUM(atliqo_revenue_crores),2) AS Total_revenue_cr
 			FROM fact_atliqo_metrics F JOIN 
 			dim_date D ON F.date=D.date
-            GROUP BY 1;
+                        GROUP BY 1;
             
 -- ARPU BEFORE/AFTER 5G
 			SELECT before_after_5g,ROUND(AVG(arpu),2) AS Average_arpu
 			FROM fact_atliqo_metrics F JOIN 
 			dim_date D ON F.date=D.date
-            GROUP BY 1;
+                        GROUP BY 1;
 
 -- ACTIVE USERS BEFORE/AFTER 5G
 			SELECT before_after_5g,ROUND(SUM(active_users_lakhs),2) AS Active_users_lakhs
 			FROM fact_atliqo_metrics F JOIN 
 			dim_date D ON F.date=D.date
-            GROUP BY 1;
+                        GROUP BY 1;
             
 -- UNSUBSCRIBED USERS BEFORE/AFTER 5G
 			SELECT before_after_5g,ROUND(SUM(unsubscribed_users_lakhs),2) AS Unsubscribed_users_lakhs
 			FROM fact_atliqo_metrics F JOIN 
 			dim_date D ON F.date=D.date
-            GROUP BY 1;
+                        GROUP BY 1;
 -- CALCULATION OF ARPU ON MONTHLY BASIS
 			SELECT month_name,before_after_5g,ROUND(AVG(arpu)) AS Avg_arpu_lakhs
-            FROM fact_atliqo_metrics F JOIN
-            dim_date D ON D.date=F.date
-            GROUP BY 1,2
+		        FROM fact_atliqo_metrics F JOIN
+		        dim_date D ON D.date=F.date
+		        GROUP BY 1,2;
           	
             
 
