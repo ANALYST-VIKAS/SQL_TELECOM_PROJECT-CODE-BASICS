@@ -8,13 +8,13 @@ This file contains all the meta information regarding the columns described in t
 
 
 
-Column Description for dim_cities:
+Column Description for **dim_cities:**
 1. city_code: This column represents the unique code given for each city.
 2. city_name: This column represents the name of the city corresponding to the city code.
 
 
 
-Column Description for dim_date:
+Column Description for **dim_date:**
 1. date: This column represents the starting date of each month. 
 2. month_name: This column represents the month names in abbreviated form(Example: Jan, Feb, Mar, etc). We have months starting from January to September except for May.
 3. before/after_5g: This column represents the unique category based on the month. We have 2 categories, Before 5G and After 5G. January to April comes represents the period before 5G implementation and June to September represents periods after 5G implementation.
@@ -23,13 +23,13 @@ Column Description for dim_date:
 
 
 
-Column Description for dim_plan:
+Column Description for **dim_plan:**
 1. plan: This column represents the various internet plans provided by the Atliqo company to the users. 
 2. plan_description: This column represents the brief description about the internet plan.
 
 
 
-Column Description for fact_atliqo_metrics:
+Column Description for **fact_atliqo_metrics:**
 1. date: This column represents the starting date of each month.
 2. city_code: This column represents the unique pincode code given for each city.
 3. company: This column represents the company name for which the data is provided. In this dataset it's only Atliqo. 
@@ -41,7 +41,7 @@ Column Description for fact_atliqo_metrics:
 
 
 
-Column Description for fact_market_share:
+Column Description for **fact_market_share:**
 1. date: This column represents the starting date of each month.
 2. city_code: This column represents the unique code given for each city.
 3. tmv_city_crores: This column represents the total market value of the city in that month in crores(unit of currency in India) from the internet users. 
@@ -56,37 +56,3 @@ Column Description for fact_plan_revenue:
 2. city_code: This column represents the unique code given for each city.
 3. plans: This column represents the various internet plans provided by the Atliqo company to the users.
 4. plan_revenue_crores: This column represents the revenue that Atliqo got from that respective plan on that particular month in that city_code in crores (unit of currency in India - 1Crore = 10 Million).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
